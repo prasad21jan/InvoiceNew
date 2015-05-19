@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row clearfix" ng-controller="customerCntrl">
+        <div class="col-md-12 column">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        Invoice ID
+                    </th>
+                    <th>
+                        Total Amount
+                    </th>
+                    <th>
+                        Paid
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="invoices in invoiceList|filter:{custInvoiceId:custlstid}">
+                    <td>
+                        {{invoices.invoiceId}}
+                    </td>
+                    <td>
+                        {{invoices.totalcost}}
+                    </td>
+                    <td>
+                        <input type="checkbox" ng-model="invoices.paid" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td><td>Total Outstanding</td>
+                    <td>{{totalOutStanding}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ui-view></div>
+</div>

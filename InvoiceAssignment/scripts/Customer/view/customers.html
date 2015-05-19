@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="row clearfix" ng-controller="customerCntrl">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Customer ID
+                    </th>
+                    <th>
+                        Customer Name
+                    </th>
+                    <th>
+                        Customer Address
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="cust in custlist">
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        <a ui-sref='customer.customerDetail({custid:cust.custid})'>
+                            {{cust.custid}}
+                        </a>
+                    </td>
+                    <td>
+                        {{cust.name}}
+                    </td>
+                    <td>
+                        {{cust.address}}
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ui-view></div>
+</div>

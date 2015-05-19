@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row clearfix" ng-controller="invoiceCntrl">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        Invoice ID
+                    </th>
+                    <th>
+                        Customer Name
+                    </th>
+                    <th>
+                        Invoice Detail
+                    </th>
+                    <th>
+                        Total Amount
+                    </th>
+                    <th>
+                        Paid
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="invoices in invoiceList|filter:{invoiceId:invoicelstid}">
+                    <td>
+                        {{invoices.invoiceId}}
+                    </td>
+                    <td>
+                        {{(custlist | filter : {custid: invoices.custInvoiceId })[0].name }}
+                    </td>
+                    <td>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>
+                                    Item Title
+                                </th>
+                                <th>
+                                    Quantity
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    subTotal
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in invoices.itemlist">
+                                <td>
+                                    {{item.itemtitle}}
+                                </td>
+                                <td>
+                                    {{item.cost}}
+                                </td>
+                                <td>
+                                    {{item.quantity}}
+                                </td>
+                                <td>
+                                    {{item.cost*item.quantity}}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        {{invoices.totalcost}}
+                    </td>
+                    <td>
+                        <input type="checkbox" ng-model="invoices.paid" class="form-control"/>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

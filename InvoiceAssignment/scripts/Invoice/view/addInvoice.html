@@ -1,0 +1,46 @@
+<div class="container">
+    <div ng-controller="invoiceCntrl">
+        <form role="form">
+        <div class="form-group">
+            <label for="custSelect">Customer Name : </label> <select id="custSelect" class="form-control" ng-model="selectedcust"
+                                                                     ng-options="opt.custid as opt.name for opt in custlist" required></select>
+        </div>
+            <div class="form-group">
+            <label for="itemtitle">Item title : </label><select type="text" ng-model="itemtitle" class="form-control" id="itemtitle" required>
+            <option>Pen</option>
+            <option>Pencil</option>
+            <option>Eraser</option>
+            <option>Scale</option></select>
+        </div>
+            <div class="form-group">
+
+                 <label for="quantity">Quantity :</label><input type="text" ng-model="quantity" class="form-control" id="quantity" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price :</label><input type="text" ng-model="price" class="form-control" id="price" required/>
+            </div>
+
+
+
+        <br>
+        <button type="submit" ng-click="additem()" class="btn btn-default">Add Item</button>
+         <br>
+            <div class="form-group">
+                <label for="totalCost">Total Cost : </label><input type="text" ng-model="totalcost" class="form-control" id="totalCost" />
+            </div>
+            <div class="form-group">
+                <label for="paidCheck">Invoice Paid : </label><input type="checkbox" ng-model="paid" class="form-control" id="paidCheck"  />
+            </div>
+            <button type="submit" ng-click="addInvoice()" class="btn btn-default">Submit Invoice</button>
+     </form>
+
+
+    <div class="col-md-4 column">
+        <ol>
+            <li ng-repeat="n in itemlist">{{n.itemtitle +" "+ n.quantity+" "+n.price}}</li>
+        </ol>
+    </div>
+   </div>
+
+</div>
